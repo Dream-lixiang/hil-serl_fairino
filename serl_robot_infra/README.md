@@ -84,6 +84,38 @@ curl -X POST <flask_url>:5000/stopimp # Stop the impedance controller
 curl -X POST <flask_url>:5000/startimp # Start the impedance controller (**Only run this after stopimp**)
 ```
 
+## Fairino (法奥) Robot (Servo Streaming)
+
+If you have the Fairino Python SDK (`fairino`) installed, you can run a compatible Flask control server that supports
+HIL-SERL's existing env API, but drives the robot using **servo streaming** (`ServoMoveStart` + `ServoCart` / `ServoJ`).
+
+### Start the server
+
+```bash
+cd serl_robot_infra/fairino_servers
+conda activate hilserl
+
+python fairino_server.py
+
+# Or explicitly:
+python fairino_server.py \
+  --robot_ip=192.168.58.6 \
+  --flask_url=127.0.0.1 \
+  --port=5000 \
+  --servo_mode=cart \
+  --cmdT=0.008 \
+  --dof=6
+```
+
+### Connect from env
+
+Point your env config `SERVER_URL` to `http://127.0.0.1:5000/`.
+The server accepts `/pose` in the same format as Franka: `[x,y,z,qx,qy,qz,qw]` where xyz is **meters**.
+
+Notes:
+- The server returns `q/dq/jacobian` sized to your DoF (default `--dof=6`) and returns zeros for force/torque/jacobian unless your SDK provides those getters.
+- Gripper endpoints are placeholders; wire them to your own end-effector if needed.
+
 ## Egg Flip Controller
 This is only a very naive wrench based controller that we implemented for the egg flip task specifically. We are release it only for reference and those really interested in seeing how we did the dynamic tasks. 
 

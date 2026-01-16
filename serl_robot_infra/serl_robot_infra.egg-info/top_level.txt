@@ -1,2 +1,3 @@
-franka_env
+fairino_env
+fairino_servers
 robot_servers
