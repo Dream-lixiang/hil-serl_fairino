@@ -5,12 +5,15 @@ import threading
 import ctypes
 import numpy as np
 
-# Adjust these paths as needed if modules are not found
-sys.path.extend([
-    "..",
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-    os.path.dirname(os.path.abspath(__file__))
-])
+# Ensure repo root is first on sys.path so local modules override site-packages
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+# If a pip-installed forcedimension_core was imported earlier, drop it.
+for name in list(sys.modules.keys()):
+    if name == "forcedimension_core" or name.startswith("forcedimension_core."):
+        del sys.modules[name]
 
 # Import necessary modules
 # Ensure forcedimension_core and realrobot are in your python path
@@ -99,11 +102,11 @@ def control_robot(env, mode, device_id, flag_exit, locks):
             # Map to Robot Control Frame
             # Mapping: x->x, y->-y, z->-z (from example)
             robot_ctrl[:] = [
+                delta_pos[1],
                 delta_pos[0],
-                -delta_pos[1],
                 -delta_pos[2],
-                delta_euler[0],
                 delta_euler[1],
+                delta_euler[0],
                 -delta_euler[2]
             ]
 

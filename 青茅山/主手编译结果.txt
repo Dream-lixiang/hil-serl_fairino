@@ -1,0 +1,112 @@
+dream@Dm:~/dream2/Xiang/sdk-3.17.6$ sudo make
+make -C examples
+make[1]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples”
+make -C CLI
+make[2]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/CLI”
+make -C autocenter
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/autocenter”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -c -o obj/release/lin-x86_64-cc/autocenter.o autocenter.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64  ./obj/release/lin-x86_64-cc/autocenter.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -o ../../../bin/autocenter 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/autocenter”
+make -C autoinit
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/autoinit”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -c -o obj/release/lin-x86_64-cc/autoinit.o autoinit.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64  ./obj/release/lin-x86_64-cc/autoinit.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -o ../../../bin/autoinit 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/autoinit”
+make -C encoders
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/encoders”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -c -o obj/release/lin-x86_64-cc/encoders.o encoders.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64  ./obj/release/lin-x86_64-cc/encoders.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -o ../../../bin/encoders 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/encoders”
+make -C gravity
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/gravity”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -c -o obj/release/lin-x86_64-cc/gravity.o gravity.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64  ./obj/release/lin-x86_64-cc/gravity.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -o ../../../bin/gravity 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/gravity”
+make -C hold
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/hold”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -c -o obj/release/lin-x86_64-cc/hold.o hold.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64  ./obj/release/lin-x86_64-cc/hold.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -o ../../../bin/hold 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/hold”
+make -C jacobian
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/jacobian”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -c -o obj/release/lin-x86_64-cc/jacobian.o jacobian.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64  ./obj/release/lin-x86_64-cc/jacobian.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -o ../../../bin/jacobian 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/jacobian”
+make -C mirror
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/mirror”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -c -o obj/release/lin-x86_64-cc/mirror.o mirror.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64  ./obj/release/lin-x86_64-cc/mirror.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -o ../../../bin/mirror 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/mirror”
+make -C multithread
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/multithread”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -c -o obj/release/lin-x86_64-cc/multithread.o multithread.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64  ./obj/release/lin-x86_64-cc/multithread.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -o ../../../bin/multithread 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/multithread”
+make -C robot
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/robot”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -c -o obj/release/lin-x86_64-cc/robot.o robot.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64  ./obj/release/lin-x86_64-cc/robot.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -o ../../../bin/robot 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/robot”
+make -C segment
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/segment”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -c -o obj/release/lin-x86_64-cc/segment.o segment.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64  ./obj/release/lin-x86_64-cc/segment.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -o ../../../bin/segment 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/segment”
+make -C sensor
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/sensor”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -c -o obj/release/lin-x86_64-cc/sensor.o sensor.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64  ./obj/release/lin-x86_64-cc/sensor.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -o ../../../bin/sensor 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/CLI/sensor”
+make[2]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/CLI”
+make -C GLFW
+make[2]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/GLFW”
+make -C constraints
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/GLFW/constraints”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -c -o obj/release/lin-x86_64-cc/constraints.o constraints.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64  ./obj/release/lin-x86_64-cc/constraints.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -lglfw -lGL -lGLU -lX11 -lXcursor -lXrandr -lXinerama -ldl -o ../../../bin/constraints 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/GLFW/constraints”
+make -C sphere
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/GLFW/sphere”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -I../../../externals/Eigen -c -o obj/release/lin-x86_64-cc/sphere.o sphere.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -I../../../externals/Eigen  ./obj/release/lin-x86_64-cc/sphere.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -lglfw -lGL -lGLU -lX11 -lXcursor -lXrandr -lXinerama -ldl -o ../../../bin/sphere 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/GLFW/sphere”
+make -C teleoperation
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/GLFW/teleoperation”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -I../../../externals/Eigen -c -o obj/release/lin-x86_64-cc/teleoperation.o teleoperation.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -I../../../externals/Eigen  ./obj/release/lin-x86_64-cc/teleoperation.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -lglfw -lGL -lGLU -lX11 -lXcursor -lXrandr -lXinerama -ldl -o ../../../bin/teleoperation 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/GLFW/teleoperation”
+make -C torques
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/GLFW/torques”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -I../../../externals/Eigen -c -o obj/release/lin-x86_64-cc/torques.o torques.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -I../../../externals/Eigen  ./obj/release/lin-x86_64-cc/torques.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -lglfw -lGL -lGLU -lX11 -lXcursor -lXrandr -lXinerama -ldl -o ../../../bin/torques 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/GLFW/torques”
+make -C torus
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/GLFW/torus”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -I../../../externals/Eigen -c -o obj/release/lin-x86_64-cc/torus.o torus.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -I../../../externals/Eigen  ./obj/release/lin-x86_64-cc/torus.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -lglfw -lGL -lGLU -lX11 -lXcursor -lXrandr -lXinerama -ldl -o ../../../bin/torus 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/GLFW/torus”
+make -C transformations
+make[3]: 进入目录“/dream2/Xiang/sdk-3.17.6/examples/GLFW/transformations”
+mkdir -p obj/release/lin-x86_64-cc
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64 -c -o obj/release/lin-x86_64-cc/transformations.o transformations.cpp
+g++ -O3 -DLINUX -std=c++17 -I../../../include -fsigned-char -m64 -march=x86-64  ./obj/release/lin-x86_64-cc/transformations.o -L../../../lib/release/lin-x86_64-gcc -ldrd -lpthread -lusb-1.0 -lrt -ldl -lglfw -lGL -lGLU -lX11 -lXcursor -lXrandr -lXinerama -ldl -o ../../../bin/transformations 
+make[3]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/GLFW/transformations”
+make[2]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples/GLFW”
+make[1]: 离开目录“/dream2/Xiang/sdk-3.17.6/examples”

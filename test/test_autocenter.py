@@ -3,8 +3,15 @@ import os
 import time
 import numpy as np
 
-# Add project root to path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Add project root to path (prepend so it overrides site-packages)
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+# If a pip-installed forcedimension_core was imported earlier, drop it.
+for name in list(sys.modules.keys()):
+    if name == "forcedimension_core" or name.startswith("forcedimension_core."):
+        del sys.modules[name]
 
 import forcedimension_core.dhd as dhd
 import forcedimension_core.drd as drd

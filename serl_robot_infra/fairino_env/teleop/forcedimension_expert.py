@@ -1,8 +1,24 @@
+import os
+import sys
 import threading
 import ctypes
 import numpy as np
 from scipy.spatial.transform import Rotation as R
 import time
+
+project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+# Prefer the repo-local `forcedimension_core` ctypes wrapper over any pip-installed
+# package with the same name (which often expects libdrd/libdhd to be installed system-wide).
+_fd_mod = sys.modules.get("forcedimension_core")
+_fd_file = getattr(_fd_mod, "__file__", "") if _fd_mod else ""
+if _fd_mod is not None and ("site-packages" in (_fd_file or "") or "dist-packages" in (_fd_file or "")):
+    for _name in list(sys.modules.keys()):
+        if _name == "forcedimension_core" or _name.startswith("forcedimension_core."):
+            del sys.modules[_name]
+
 import forcedimension_core.dhd as dhd
 import forcedimension_core.drd as drd
 
@@ -178,13 +194,13 @@ class ForceDimensionExpert:
         # Mapping (Position - Absolute)
         # Assuming FD mapping: x(right), y(up), z(back/front)
         # Target mapping: x(forward), y(left), z(up) -> Adjust as per your robot frame
-        action[0] = -raw_pos_input[1] # -Y -> X
-        action[1] = raw_pos_input[0]  # X  -> Y
+        action[0] = raw_pos_input[0] # -Y -> X
+        action[1] = raw_pos_input[1]  # X  -> Y
         action[2] = raw_pos_input[2]  # Z  -> Z
         
         # Mapping (Rotation - Relative)
-        action[3] = -delta_euler[1]
-        action[4] = delta_euler[0]
+        action[3] = -delta_euler[0]
+        action[4] = delta_euler[1]
         action[5] = delta_euler[2]
         
         # Gripper

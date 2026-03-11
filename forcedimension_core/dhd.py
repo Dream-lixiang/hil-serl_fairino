@@ -3,7 +3,7 @@ import numpy as np
 import os
 
 # Load the shared library
-_lib_path = "/home/yujp/vuuz/sdk-3.17.6/lib/release/lin-x86_64-gcc/libdhd.so.3.17.6"
+_lib_path = "/home/dream/dream2/Xiang/sdk-3.17.6/lib/release/lin-x86_64-gcc/libdhd.so.3.17.6"
 _lib = ctypes.CDLL(_lib_path)
 
 # Define argument types for C functions

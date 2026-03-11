@@ -2,12 +2,12 @@ import ctypes
 import os
 
 # Load the shared library
-_lib_path = "/home/yujp/vuuz/sdk-3.17.6/lib/release/lin-x86_64-gcc/libdrd.so.3.17.6"
+_lib_path = "/home/dream/dream2/Xiang/sdk-3.17.6/lib/release/lin-x86_64-gcc/libdrd.so.3.17.6"
 # Note: libdrd usually depends on libdhd, so we might need to load dhd first (which we did in dhd.py, but here standalone)
 # CDLL usually handles dependencies if they are in RPATH or LD_LIBRARY_PATH. 
 # We might need to preload libdhd here too or rely on system.
 # Let's load libdhd explicitly just in case to ensure symbols are available.
-_libdhd_path = "/home/yujp/vuuz/sdk-3.17.6/lib/release/lin-x86_64-gcc/libdhd.so.3.17.6"
+_libdhd_path = "/home/dream/dream2/Xiang/sdk-3.17.6/lib/release/lin-x86_64-gcc/libdhd.so.3.17.6"
 ctypes.CDLL(_libdhd_path, mode=ctypes.RTLD_GLOBAL)
 _lib = ctypes.CDLL(_lib_path)
 

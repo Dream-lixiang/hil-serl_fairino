@@ -35,6 +35,10 @@ flags.DEFINE_integer("port", 5000, "Port for the Flask server")
 
 flags.DEFINE_float("cmdT", 0.008, "Servo command period in seconds.")
 flags.DEFINE_enum("servo_mode", "cart", ["cart", "joint"], "Streaming mode.")
+flags.DEFINE_float("cart_vel", 3.0, "ServoCart velocity.")
+flags.DEFINE_float("cart_acc", 0.0, "ServoCart acceleration.")
+flags.DEFINE_float("filterT", 0.05, "ServoCart filter time.")
+flags.DEFINE_float("joint_reset_vel", 20.0, "MoveJ velocity used by /jointreset.")
 
 flags.DEFINE_integer("tool", 0, "Tool index")
 flags.DEFINE_integer("user", 0, "User frame index")
@@ -71,7 +75,17 @@ class FairinoServoController:
     """
 
     def __init__(
-        self, robot_ip: str, cmdT: float, servo_mode: str, tool: int, user: int, dof: int = 6
+        self,
+        robot_ip: str,
+        cmdT: float,
+        servo_mode: str,
+        tool: int,
+        user: int,
+        dof: int = 6,
+        cart_vel: float = 3.0,
+        cart_acc: float = 0.0,
+        filterT: float = 0.05,
+        joint_reset_vel: float = 20.0,
     ):
         # Vendored SDK import
         vendored_root = os.path.join(os.path.dirname(__file__), "Fairino_Arm")
@@ -86,6 +100,10 @@ class FairinoServoController:
         self.tool = int(tool)
         self.user = int(user)
         self.dof = int(dof)
+        self.cart_vel = float(cart_vel)
+        self.cart_acc = float(cart_acc)
+        self.filterT = float(filterT)
+        self.joint_reset_vel = float(joint_reset_vel)
 
         self._lock = threading.Lock()
         self._running = False
@@ -159,7 +177,7 @@ class FairinoServoController:
             joint_pos=list(map(float, reset_q_deg)),
             tool=self.tool,
             user=self.user,
-            vel=20.0,
+            vel=self.joint_reset_vel,
             blendT=-1.0,
         )
         print(f"MoveJ returned: {ret}")
@@ -261,10 +279,10 @@ class FairinoServoController:
                         mode=0,
                         desc_pos=target.tolist(),
                         pos_gain=[1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-                        acc=0.0,
-                        vel=3.0,
+                        acc=self.cart_acc,
+                        vel=self.cart_vel,
                         cmdT=self.cmdT,
-                        filterT=0.04,
+                        filterT=self.filterT,
                         gain=0.0,
                     )
                     if ret != 0:
@@ -330,6 +348,10 @@ def main(_):
         tool=FLAGS.tool,
         user=FLAGS.user,
         dof=FLAGS.dof,
+        cart_vel=FLAGS.cart_vel,
+        cart_acc=FLAGS.cart_acc,
+        filterT=FLAGS.filterT,
+        joint_reset_vel=FLAGS.joint_reset_vel,
     )
     ctrl.start()
     

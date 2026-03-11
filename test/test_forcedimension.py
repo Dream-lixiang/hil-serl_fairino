@@ -3,8 +3,11 @@ import os
 import time
 import numpy as np
 
-# Add the project root to sys.path to allow importing serl_robot_infra
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Add the project root to sys.path to allow importing local forcedimension_core and serl_robot_infra
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if project_root not in sys.path:
+    # 插到最前面，覆盖掉可能存在的 pip 版 forcedimension_core
+    sys.path.insert(0, project_root)
 
 from serl_robot_infra.fairino_env.teleop.forcedimension_expert import ForceDimensionExpert
 
